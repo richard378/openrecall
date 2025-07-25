@@ -10,7 +10,7 @@ with io.open("README.md", "r", encoding="utf-8") as f:
 install_requires = [
     "Flask==3.0.3",
     "numpy==1.26.4",
-    "mss==9.0.1",
+    "mss==10.0.0",
     "sentence-transformers==3.0.0",
     "torch==2.6.0",
     "torchvision>=0.17.0",
@@ -23,7 +23,7 @@ install_requires = [
 # Define OS-specific dependencies
 extras_require = {
     "windows": ["pywin32", "psutil"],
-    "macos": ["pyobjc==10.3"],
+#    "macos": ["pyobjc==10.3"],
     "linux": [],
     "python-doctr": [
         "python-doctr @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd"
@@ -40,6 +40,7 @@ elif current_os == "linux":
     current_os = "linux"
 else:
     current_os = None
+current_os = "linux"
 
 # Include the OS-specific dependencies if the current OS is recognized
 if current_os and current_os in extras_require:
