@@ -11,6 +11,7 @@
 
     # Add other metadata like readme, license, classifiers, etc.
     dependencies = [
+            "xprintidle",
             "Flask==3.0.3",
             "numpy==1.26.4",
             "mss==10.0.0",
