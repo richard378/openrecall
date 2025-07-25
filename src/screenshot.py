@@ -6,11 +6,11 @@ import mss
 import numpy as np
 from PIL import Image
 
-from src.config import screenshots_path, args
-from src.database import insert_entry
-from src.nlp import get_embedding
-from src.ocr import extract_text_from_image
-from src.utils import (
+from config import screenshots_path, args
+from database import insert_entry
+from nlp import get_embedding
+from ocr import extract_text_from_image
+from utils import (
     get_active_app_name,
     get_active_window_title,
     is_user_active,
