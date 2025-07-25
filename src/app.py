@@ -4,11 +4,11 @@ import numpy as np
 from flask import Flask, render_template_string, request, send_from_directory
 from jinja2 import BaseLoader
 
-from config import appdata_folder, screenshots_path
-from database import create_db, get_all_entries, get_timestamps
-from nlp import cosine_similarity, get_embedding
-from screenshot import record_screenshots_thread
-from utils import human_readable_time, timestamp_to_human_readable
+from src.config import appdata_folder, screenshots_path
+from src.database import create_db, get_all_entries, get_timestamps
+from src.nlp import cosine_similarity, get_embedding
+from src.screenshot import record_screenshots_thread
+from src.utils import human_readable_time, timestamp_to_human_readable
 
 app = Flask(__name__)
 
