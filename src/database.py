@@ -3,7 +3,7 @@ from collections import namedtuple
 import numpy as np
 from typing import Any, List, Optional, Tuple
 
-from openrecall.config import db_path
+from src.config import db_path
 
 # Define the structure of a database entry using namedtuple
 Entry = namedtuple("Entry", ["id", "app", "title", "text", "timestamp", "embedding"])
