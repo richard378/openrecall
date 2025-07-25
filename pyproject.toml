@@ -32,7 +32,7 @@
 
 
 
-    [tool.seetuptools.packages]
+    [tool.setuptools.packages]
         where = ["src"]
         exclude = ["tests"]
         namespaces = false
