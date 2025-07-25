@@ -5,6 +5,7 @@
     [project]
     name = "openrecall"
     version = "0.8.1"
+    readme = "README.md"
     description = "Openrecall fork."
     authors = [{name = "Richard Horan", email = "richard@webhoran.com"}]
 
