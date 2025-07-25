@@ -5,6 +5,10 @@
     [project]
     name = "openrecall"
     version = "0.8.1"
+<<<<<<< HEAD
+=======
+    readme = "README.md"
+>>>>>>> 4b1cd743543ee53775755f18695fc933e7707714
     description = "Openrecall fork."
     authors = [{name = "Richard Horan", email = "richard@webhoran.com"}]
 
@@ -20,7 +24,14 @@
              "h5py==3.11.0",
             "rapidfuzz==3.9.3",
             "Pillow==10.3.0",
+<<<<<<< HEAD
             "python-doctr @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd",
+=======
+            "pywin32 ; platform_system == 'Windows'",
+            "psutil ; platform_system == 'Windows'",
+            "pyobjc==10.3 ; platform_system == 'Darwin'",
+            "python-doctr",#@ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd",
+>>>>>>> 4b1cd743543ee53775755f18695fc933e7707714
     ]
 
 
