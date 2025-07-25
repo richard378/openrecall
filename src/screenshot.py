@@ -6,11 +6,11 @@ import mss
 import numpy as np
 from PIL import Image
 
-from src.config import screenshots_path, args
-from src.database import insert_entry
-from src.nlp import get_embedding
-from src.ocr import extract_text_from_image
-from src.utils import (
+from openrecall.src.config import screenshots_path, args
+from openrecall.src.database import insert_entry
+from openrecall.src.nlp import get_embedding
+from openrecall.src.ocr import extract_text_from_image
+from openrecall.src.utils import (
     get_active_app_name,
     get_active_window_title,
     is_user_active,
@@ -192,7 +192,7 @@ def record_screenshots_thread():
                     format="webp",
                     lossless=True,
                 )
-                text: str = extract_text_from_image(last_screenshot)
+                text: str = extract_text_from_image(current_screenshot)
                 # Only proceed if OCR actually extracts text
                 if text.strip():
                     embedding: np.ndarray = get_embedding(text)
