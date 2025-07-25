@@ -1,3 +1,4 @@
+#from fileinput import filename
 import os
 import time
 from typing import List, Tuple
@@ -81,10 +82,11 @@ def take_screenshots() -> List[np.ndarray]:
         # sct.monitors[0] is the combined view of all monitors
         # sct.monitors[1] is the primary monitor
         # sct.monitors[2:] are other monitors
-        monitor_indices = range(1, len(sct.monitors))  # Skip the 'all monitors' entry
+        monitor_indices = range(1, len(sct.monitors)) # Skip the 'all monitors' entry
+       # print(f"{monitor_indices} 3 montior")
 
-        if args.primary_monitor_only:
-            monitor_indices = [1]  # Only index 1 corresponds to the primary monitor
+       # if args.primary_monitor_only:
+       #     monitor_indices = [1]  # Only index 1 corresponds to the primary monitor
 
         for i in monitor_indices:
             # Ensure the index is valid before attempting to grab
@@ -149,7 +151,7 @@ def record_screenshots_thread() -> None:
                     format="webp",
                     lossless=True,
                 )
-                text: str = extract_text_from_image(current_screenshot)
+                text: str = extract_text_from_image(current_screenshot[i])
                 # Only proceed if OCR actually extracts text
                 if text.strip():
                     embedding: np.ndarray = get_embedding(text)
@@ -187,12 +189,15 @@ def record_screenshots_thread():
                 last_screenshots[i] = screenshot
                 image = Image.fromarray(screenshot)
                 timestamp = int(time.time())
+                filename = f"{timestamp}_{i}.webp" # Add monitor index to filename for uniqueness
+                filepath = os.path.join(screenshots_path, filename)
                 image.save(
-                    os.path.join(screenshots_path, f"{timestamp}.webp"),
+                    filepath,
+                    #os.path.join(screenshots_path, f"{timestamp}.webp"),
                     format="webp",
                     lossless=True,
                 )
-                text: str = extract_text_from_image(current_screenshot)
+                text: str = extract_text_from_image(screenshot)
                 # Only proceed if OCR actually extracts text
                 if text.strip():
                     embedding: np.ndarray = get_embedding(text)
@@ -203,3 +208,4 @@ def record_screenshots_thread():
                     )
 
         time.sleep(3) # Wait before taking the next screenshot
+    return screenshots

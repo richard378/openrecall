@@ -444,10 +444,13 @@ def is_user_active() -> bool:
         if the check is not implemented or fails.
     """
     if sys.platform == "win32":
+        print(f"LInux platform '{sys.platform}' is active.")
         return is_user_active_windows()
     elif sys.platform == "darwin":
+        print(f"LInux platform '{sys.platform}' is active.")
         return is_user_active_osx()
     elif sys.platform.startswith("linux"):
+        print(f"LInux platform '{sys.platform}' is active.")
         return is_user_active_linux()
     else:
         print(f"Warning: User active check not supported for platform '{sys.platform}', assuming active.")

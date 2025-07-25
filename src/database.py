@@ -6,7 +6,7 @@ from typing import Any, List, Optional, Tuple
 from openrecall.src.config import db_path
 
 # Define the structure of a database entry using namedtuple
-Entry = namedtuple("Entry", ["id", "app", "title", "text", "timestamp", "embedding"])
+Entry = namedtuple("Entry", ["id", "app", "title", "text", "timestamp", "filename", "embedding"])
 
 
 def create_db() -> None:
@@ -26,6 +26,7 @@ def create_db() -> None:
                        title TEXT,
                        text TEXT,
                        timestamp INTEGER UNIQUE,
+                       filename TEXT,
                        embedding BLOB
                    )"""
             )
@@ -51,7 +52,7 @@ def get_all_entries() -> List[Entry]:
         with sqlite3.connect(db_path) as conn:
             conn.row_factory = sqlite3.Row  # Return rows as dictionary-like objects
             cursor = conn.cursor()
-            cursor.execute("SELECT id, app, title, text, timestamp, embedding FROM entries ORDER BY timestamp DESC")
+            cursor.execute("SELECT id, app, title, text, timestamp, filename, embedding FROM entries ORDER BY timestamp DESC")
             results = cursor.fetchall()
             for row in results:
                 # Deserialize the embedding blob back into a NumPy array
@@ -63,6 +64,7 @@ def get_all_entries() -> List[Entry]:
                         title=row["title"],
                         text=row["text"],
                         timestamp=row["timestamp"],
+                        filename=row["filename"],
                         embedding=embedding,
                     )
                 )
@@ -84,16 +86,17 @@ def get_timestamps() -> List[int]:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
             # Use the index for potentially faster retrieval
-            cursor.execute("SELECT timestamp FROM entries ORDER BY timestamp DESC")
+            cursor.execute("SELECT timestamp,filename FROM entries ORDER BY timestamp DESC")
             results = cursor.fetchall()
             timestamps = [result[0] for result in results]
+            filenames = [result[1] for result in results]
     except sqlite3.Error as e:
         print(f"Database error while fetching timestamps: {e}")
-    return timestamps
+    return timestamps,filenames
 
 
 def insert_entry(
-    text: str, timestamp: int, embedding: np.ndarray, app: str, title: str
+    text: str, timestamp: int, embedding: np.ndarray, app: str, title: str, filename: str
 ) -> Optional[int]:
     """
     Inserts a new entry into the database.
@@ -104,6 +107,7 @@ def insert_entry(
         embedding (np.ndarray): The embedding vector for the text.
         app (str): The name of the active application.
         title (str): The title of the active window.
+        filename (str): the screenshot filename
 
     Returns:
         Optional[int]: The ID of the newly inserted row, or None if insertion fails.
@@ -115,10 +119,10 @@ def insert_entry(
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
             cursor.execute(
-                """INSERT INTO entries (text, timestamp, embedding, app, title)
-                   VALUES (?, ?, ?, ?, ?)
+                """INSERT INTO entries (text, timestamp, embedding, app, title, filename)
+                   VALUES (?, ?, ?, ?, ?, ?)
                    ON CONFLICT(timestamp) DO NOTHING""", # Avoid duplicates based on timestamp
-                (text, timestamp, embedding_bytes, app, title),
+                (text, timestamp, embedding_bytes, app, title, filename),
             )
             conn.commit()
             if cursor.rowcount > 0: # Check if insert actually happened
