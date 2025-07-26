@@ -73,7 +73,7 @@ OpenRecall offers several key advantages over closed-source alternatives:
 To install:
 ```
 python3.11 -m pip install --upgrade --no-cache-dir git+https://github.com/richard378/openrecall.git
-...
+```
 
 To run:
 ```
