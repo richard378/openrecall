@@ -72,16 +72,12 @@ OpenRecall offers several key advantages over closed-source alternatives:
 
 To install:
 ```
-<<<<<<< HEAD
-python3 -m pip install --upgrade --no-cache-dir git+https://github.com/richard378/openrecall.git
-=======
-python3.11 -m pip install --upgrade --no-cache-dir git+https://github.com/openrecall/openrecall.git
->>>>>>> 4b1cd743543ee53775755f18695fc933e7707714
-```
+python3.11 -m pip install --upgrade --no-cache-dir git+https://github.com/richard378/openrecall.git
+...
 
 To run:
 ```
-python3.11 -m openrecall.app
+python3.11 -m openrecall.src.app
 ```
 Open your browser to:
 [http://localhost:8082](http://localhost:8082) to access OpenRecall.
