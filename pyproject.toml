@@ -6,7 +6,7 @@
     name = "openrecall"
     version = "0.8.1"
     description = "Openrecall fork beta alpha software tested only on Linux."
-    authors = [{name = "koenvaneijk", email = "mail@datatalk.be", url = "https://www.github.com/openrecall/openrecall"}, 
+    authors = [{name = "koenvaneijk", email = "mail@datatalk.be"}, 
               {name = "Richard Horan", email = "richard@webhoran.com"}]
     readme = "README.md"
     # Add other metadata like readme, license, classifiers, etc.
