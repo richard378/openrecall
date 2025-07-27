@@ -94,7 +94,7 @@ def take_screenshots() -> List[np.ndarray]:
         monitor_indices = range(1, len(sct.monitors)) # Skip the 'all monitors' entry
       
 
-       if args.primary_monitor_only:
+        if args.primary_monitor_only:
            monitor_indices = [1]  # Only index 1 corresponds to the primary monitor
 
         for i in monitor_indices:
