@@ -452,3 +452,10 @@ def is_user_active() -> bool:
     else:
         print(f"Warning: User active check not supported for platform '{sys.platform}', assuming active.")
         raise NotImplementedError(f"Platform '{sys.platform}' not supported yet for is_user_active")
+    
+def is_wayland():
+    """
+    Checks if the current session is running on Wayland.
+    Returns True if Wayland is detected, False otherwise.
+    """
+    return (sys.modules["os"].environ.get("XDG_SESSION_TYPE") == "wayland" and sys.platform.startswith("linux"))

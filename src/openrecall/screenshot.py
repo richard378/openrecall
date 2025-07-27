@@ -15,6 +15,7 @@ from .utils import (
     get_active_app_name,
     get_active_window_title,
     is_user_active,
+    is_wayland,
 )
 
 
@@ -77,16 +78,24 @@ def take_screenshots() -> List[np.ndarray]:
     Returns:
         A list of screenshots, where each screenshot is a NumPy array (RGB).
     """
+    if is_wayland():
+        print("Wayland detected. Currently, not supported on Wayland.")
+        return []
+        # if args.primary_monitor_only:
+        #     print("Capturing only the primary monitor as requested.")
+        # else:
+        #     print("Capturing only the primary monitor due to Wayland limitations.")
+        # args.primary_monitor_only = True
     screenshots: List[np.ndarray] = []
     with mss.mss() as sct:
         # sct.monitors[0] is the combined view of all monitors
         # sct.monitors[1] is the primary monitor
         # sct.monitors[2:] are other monitors
         monitor_indices = range(1, len(sct.monitors)) # Skip the 'all monitors' entry
-       # print(f"{monitor_indices} 3 montior")
+      
 
-       # if args.primary_monitor_only:
-       #     monitor_indices = [1]  # Only index 1 corresponds to the primary monitor
+       if args.primary_monitor_only:
+           monitor_indices = [1]  # Only index 1 corresponds to the primary monitor
 
         for i in monitor_indices:
             # Ensure the index is valid before attempting to grab
