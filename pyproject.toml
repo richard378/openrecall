@@ -31,9 +31,10 @@
                 "pywin32 ; platform_system == 'Windows'",
                 "psutil ; platform_system == 'Windows'",
                 ]
-   # mac = ["pyobjc==10.3 ; platform_system == 'Darwin'"]
+    mac = ["pyobjc==10.3 ; platform_system == 'Darwin'"]
     
-    search = [ "python-doctr" ] # @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd"
+    "python-doctr" # @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd"
+    
     [project.urls]
     Repository = "https://www.github.com/richard378/openrecall.git"
 
