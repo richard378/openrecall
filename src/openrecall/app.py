@@ -192,4 +192,4 @@ if __name__ == "__main__":
     t = Thread(target=record_screenshots_thread)
     t.start()
 
-    app.run(port=8082)
+    # app.run(port=8082)
