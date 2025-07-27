@@ -1,5 +1,6 @@
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from dtaidistance import dtw
 import logging
 
 # Configure logging
@@ -58,6 +59,30 @@ def get_embedding(text: str) -> np.ndarray:
     except Exception as e:
         logger.error(f"Error generating embedding: {e}")
         return np.zeros(EMBEDDING_DIM, dtype=np.float32)
+
+
+def similarity_threshold(a: np.ndarray, b: np.ndarray) -> float:
+    """
+    Calculates the similarity threshold between two numpy vectors.
+
+    Args:
+        a: The first numpy array.
+        b: The second numpy array.
+
+    Returns:
+        The similarity threshold score (float between 0 and 1),
+        or 0.0 if either vector has zero magnitude.
+    """
+    norm_a = np.linalg.norm(a)
+    norm_b = np.linalg.norm(b)
+
+    if norm_a == 0 or norm_b == 0:
+        logger.warning("One or both vectors have zero magnitude. Returning 0 similarity.")
+        return 0.0
+
+    distance = dtw.distance(a, b)
+    # Clip values to handle potential floating-point inaccuracies slightly outside [-1, 1]
+    return float(np.clip(distance, -1.0, 1.0))
 
 
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:

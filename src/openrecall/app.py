@@ -6,7 +6,7 @@ from jinja2 import BaseLoader
 
 from .config import appdata_folder, screenshots_path
 from .database import create_db, get_all_entries, get_timestamps
-from .nlp import cosine_similarity, get_embedding
+from .nlp import cosine_similarity, similarity_threshold, get_embedding
 from .screenshot import record_screenshots_thread
 from .utils import human_readable_time, timestamp_to_human_readable
 
@@ -148,7 +148,7 @@ def search():
     print(f"Number of entries: {len(entries)}")
     if len(embeddings) == 0:
         print("No entries found in the database.")
-    similarities = [cosine_similarity(query_embedding, emb) for emb in embeddings]
+    similarities = [similarity_threshold(query_embedding, emb) for emb in embeddings]
     print(f"Similarities: {similarities}")
     # Sort entries by similarity in descending order
     indices = np.argsort(similarities)[::-1]
