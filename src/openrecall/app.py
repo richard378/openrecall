@@ -141,18 +141,19 @@ def timeline():
 def search():
     q = request.args.get("q")
     if not q or q.strip() == "":
-        return
-    entries = get_all_entries()
-    embeddings = [np.frombuffer(entry.embedding, dtype=np.float64) for entry in entries]
-    query_embedding = get_embedding(q)
+        sorted_entries = []
+    else:
+      entries = get_all_entries()
+      embeddings = [np.frombuffer(entry.embedding, dtype=np.float64) for entry in entries]
+      query_embedding = get_embedding(q)
     
-    if len(embeddings) == 0:
-        print("No entries found in the database.")
-    similarities = [similarity_threshold(query_embedding, emb) for emb in embeddings]
-    # Sort entries by similarity in descending order
-    indices = np.argsort(similarities)[::-1]
-    sorted_entries = [entries[i] for i in indices]
-
+      if len(embeddings) == 0:
+          print("No entries found in the database.")
+      similarities = [similarity_threshold(query_embedding, emb) for emb in embeddings]
+      # Sort entries by similarity in descending order
+      indices = np.argsort(similarities)[::-1]
+      sorted_entries = [entries[i] for i in indices]
+    
     return render_template_string(
         """
 {% extends "base_template" %}
