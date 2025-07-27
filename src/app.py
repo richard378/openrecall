@@ -183,7 +183,7 @@ def serve_image(filename):
     return send_from_directory(screenshots_path, filename)
 
 
-if __name__ == "__main__":
+def app():
     create_db()
 
     print(f"Appdata folder: {appdata_folder}")
