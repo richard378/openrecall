@@ -111,16 +111,16 @@ def timeline():
     const timestampImage = document.getElementById('timestampImage');
 
     slider.addEventListener('input', function() {
-      const reversedIndex = filenames.length - 1 - slider.value;
-      const filename = filenames[reversedIndex];
+      const reversedIndex = timestamps.length - 1 - slider.value;
+      const timestamp = timestamp[reversedIndex];
       sliderValue.textContent = new Date(timestamp * 1000).toLocaleString();  // Convert to human-readable format
-      timestampImage.src = `/static/${filename}`;
+      timestampImage.src = `/static/${filename[0]}`;
     });
 
     // Initialize the slider with a default value
     slider.value = timestamps.length - 1;
     sliderValue.textContent = new Date(timestamps[0] * 1000).toLocaleString();  // Convert to human-readable format
-    timestampImage.src = `/static/${filenames[0]}`;
+    timestampImage.src = `/static/${filenames[filenames.length - 1]}`;
   </script>
 {% else %}
   <div class="container">
