@@ -101,7 +101,7 @@ def timeline():
       <div class="slider-value" id="sliderValue">{{timestamps[0] | timestamp_to_human_readable }}</div>
     </div>
     <div class="image-container">
-      <img id="timestampImage" src="/static/{{filenames[0]}}" alt="Image for timestamp">
+      <img id="timestampImage" src="/static/{{filenames[slider.value]}}" alt="Image for timestamp">
     </div>
   </div>
   <script>
@@ -112,9 +112,9 @@ def timeline():
 
     slider.addEventListener('input', function() {
       const reversedIndex = timestamps.length - 1 - slider.value;
-      const timestamp = timestamp[reversedIndex];
+      const timestamp = timestamps[reversedIndex];
       sliderValue.textContent = new Date(timestamp * 1000).toLocaleString();  // Convert to human-readable format
-      timestampImage.src = `/static/${filename[0]}`;
+      timestampImage.src = `/static/${filename[slider.value]}`;
     });
 
     // Initialize the slider with a default value
