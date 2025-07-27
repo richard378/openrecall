@@ -132,6 +132,7 @@ def timeline():
 {% endblock %}
 """,
         timestamps=timestamps,
+        filenames=filenames,
     )
 
 
