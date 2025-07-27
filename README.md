@@ -69,7 +69,7 @@ OpenRecall offers several key advantages over closed-source alternatives:
 | Cost             | Free                          | Part of Windows 11 (requires specialized hardware) | Monthly subscription                   |
 
 ## Quick links
-- [Roadmap](https://github.com/orgs/richard378/projects/2) and you can [vote for your favorite features](https://github.com/richard378/openrecall/discussions/9#discussion-6775473)
+- [Roadmap](https://github.com/richard378/openrecall/projects) and you can [vote for your favorite features](https://github.com/richard378/openrecall/)
 - [FAQ](https://github.com/richard378/openrecall/wiki/FAQ)
 
 ## Get Started
