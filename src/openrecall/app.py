@@ -98,7 +98,7 @@ def timeline():
   <div class="container">
     <div class="slider-container">
       <input type="range" class="slider custom-range" id="discreteSlider" min="0" max="{{timestamps|length - 1}}" step="1" value="{{timestamps|length - 1}}">
-      <div class="slider-value" id="sliderValue">{{(timestamps[0] | timestamp_to_human_readable }}</div>
+      <div class="slider-value" id="sliderValue">{{timestamps[0] | timestamp_to_human_readable }}</div>
     </div>
     <div class="image-container">
       <img id="timestampImage" src="/static/{{filenames[0]}}" alt="Image for timestamp">
