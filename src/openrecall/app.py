@@ -141,7 +141,8 @@ def timeline():
 def search():
     q = request.args.get("q")
     if not q or q.strip() == "":
-        sorted_entries = []
+        app.logger.info("Empty search query received.")
+        return timeline()
     else:
       entries = get_all_entries()
       embeddings = [np.frombuffer(entry.embedding, dtype=np.float64) for entry in entries]
