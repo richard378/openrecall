@@ -101,7 +101,7 @@ def timeline():
       <div class="slider-value" id="sliderValue">{{timestamps[0] | timestamp_to_human_readable }}</div>
     </div>
     <div class="image-container">
-      <img id="timestampImage" src="/static/{{filenames[slider.value-1]}}" alt="Image for timestamp">
+      <img id="timestampImage" src="/static/{{filenames|length - 1}}" alt="Image for timestamp">
     </div>
   </div>
   <script>
