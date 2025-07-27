@@ -114,13 +114,13 @@ def timeline():
       const reversedIndex = timestamps.length - 1 - slider.value;
       const timestamp = timestamps[reversedIndex];
       sliderValue.textContent = new Date(timestamp * 1000).toLocaleString();  // Convert to human-readable format
-      timestampImage.src = `/static/${filename[slider.value]}`;
+      timestampImage.src = `/static/${filename[reversedIndex]}`;
     });
 
     // Initialize the slider with a default value
     slider.value = timestamps.length - 1;
     sliderValue.textContent = new Date(timestamps[0] * 1000).toLocaleString();  // Convert to human-readable format
-    timestampImage.src = `/static/${filenames[filenames.length - 1]}`;
+    timestampImage.src = `/static/${filenames[timestamps.length - 1]}`;
   </script>
 {% else %}
   <div class="container">
