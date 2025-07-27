@@ -69,24 +69,25 @@ OpenRecall offers several key advantages over closed-source alternatives:
 | Cost             | Free                          | Part of Windows 11 (requires specialized hardware) | Monthly subscription                   |
 
 ## Quick links
-- [Roadmap](https://github.com/orgs/openrecall/projects/2) and you can [vote for your favorite features](https://github.com/openrecall/openrecall/discussions/9#discussion-6775473)
-- [FAQ](https://github.com/openrecall/openrecall/wiki/FAQ)
+- [Roadmap](https://github.com/orgs/richard378/projects/2) and you can [vote for your favorite features](https://github.com/richard378/openrecall/discussions/9#discussion-6775473)
+- [FAQ](https://github.com/richard378/openrecall/wiki/FAQ)
 
 ## Get Started
 
 ### Prerequisites
-- Python 3.11
+- Python 3.11 or higher with pipx installed
 - MacOSX/Windows/Linux
 - Git
 
+
 To install:
 ```
-python3.11 -m pip install --upgrade --no-cache-dir git+https://github.com/richard378/openrecall.git
+python3 -m pipx install --incluede-deps git+https://github.com/richard378/openrecall.git
 ```
 
 To run:
 ```
-python3.11 -m openrecall.src.app
+openrecall
 ```
 Open your browser to:
 [http://localhost:8082](http://localhost:8082) to access OpenRecall.
@@ -102,7 +103,7 @@ To uninstall OpenRecall and remove all stored data:
 
 1. Uninstall the package:
    ```
-   python3 -m pip uninstall openrecall
+   python3 -m pipx uninstall openrecall
    ```
 
 2. Remove stored data:
