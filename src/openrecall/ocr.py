@@ -17,4 +17,5 @@ def extract_text_from_image(image):
                     text += word.value + " "
                 text += "\n"
             text += "\n"
+            print(f"OCR: TEXT: {text}")
     return text
