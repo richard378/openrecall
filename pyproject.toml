@@ -37,5 +37,10 @@
     [project.urls]
     Repository = "https://www.github.com/richard378/openrecall.git"
 
+    [tool.setuptools.packages.find]
+    where = ["src"]
+    exclude = ["tests"]
+    namespaces = false
+        
     [project.scripts]
     openrecall = "src.app:__main__"
