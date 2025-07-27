@@ -7,11 +7,11 @@ import mss
 import numpy as np
 from PIL import Image
 
-from openrecall.src.config import screenshots_path, args
-from openrecall.src.database import insert_entry
-from openrecall.src.nlp import get_embedding
-from openrecall.src.ocr import extract_text_from_image
-from openrecall.src.utils import (
+from .config import screenshots_path, args
+from .database import insert_entry
+from .nlp import get_embedding
+from .ocr import extract_text_from_image
+from .utils import (
     get_active_app_name,
     get_active_window_title,
     is_user_active,
