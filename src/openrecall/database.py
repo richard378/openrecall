@@ -73,7 +73,7 @@ def get_all_entries() -> List[Entry]:
     return entries
 
 
-def get_timestamps() -> List[int],List[str]:
+def get_timestamps() -> Tuple[List[int],List[str]]:
     """
     Retrieves all timestamps from the database, ordered descending.
 
