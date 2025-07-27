@@ -16,7 +16,7 @@ https://wwww.github.com/openrecall/openrecall
 
 # Currently does this software not support Wayland on Linux.
 
-##(Note: These communities are for the origional software only.  Not his version)
+## (Note: These communities are for the origional software only.  Not his version) 
 Join our [Discord](https://discord.gg/RzvCYRgUkx) and/or [Telegram](https://t.me/+5DULWTesqUYwYjY0) community to stay informed of updates! 
 
 # Take Control of Your Digital Memory
