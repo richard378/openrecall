@@ -8,8 +8,10 @@
     description = "Openrecall fork beta alpha software tested only on Linux."
     authors = [{name = "koenvaneijk", email = "mail@datatalk.be"}, 
               {name = "Richard Horan", email = "richard@webhoran.com"}]
-    readme = "README.md"
+    readme = {file = "README.md" , content-type = "text/markdown"}
+    license = "AGPL-3.0-only"
     # Add other metadata like readme, license, classifiers, etc.
+    requires-python = ".=3.11"
     dependencies = [
             "Flask==3.0.3",
             "numpy==1.26.4",
@@ -21,11 +23,19 @@
             "h5py==3.11.0",
             "rapidfuzz==3.9.3",
             "Pillow==10.3.0",
-            "pywin32 ; platform_system == 'Windows'",
-            "psutil ; platform_system == 'Windows'",
-           # "pyobjc==10.3 ; platform_system == 'Darwin'",
-            "python-doctr"# @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd",
     ]
+    [project.urls]
+    Repository = "https://github.com/richard378/openrecall.git"
+    
+    [project.optional-dependencies]        
+    win = [
+                "pywin32 ; platform_system == 'Windows'",
+                "psutil ; platform_system == 'Windows'",
+                ]
+    mac = [    "pyobjc==10.3 ; platform_system == 'Darwin'
+    ]
+    search = [ "python-doctr" ]# @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd",
+    
 
     [tool.setuptools.packages.find]
         where = ["src"]
@@ -33,4 +43,4 @@
         namespaces = false
 
     [project.scripts]
-    openrecall = "src.app"
+    openrecall = "src.app:__main__"
