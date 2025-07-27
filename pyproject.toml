@@ -45,4 +45,4 @@
     namespaces = false
 
    [project.scripts]
-   openrecall = "openrecall.app:app"
+   openrecall = "openrecall.app:recall"
