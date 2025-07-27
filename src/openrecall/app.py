@@ -140,20 +140,18 @@ def timeline():
 @app.route("/search")
 def search():
     q = request.args.get("q")
+    if not q or q.strip() == "":
+        return
     entries = get_all_entries()
     embeddings = [np.frombuffer(entry.embedding, dtype=np.float64) for entry in entries]
     query_embedding = get_embedding(q)
-    print(f"Search query: '{q}'")
-    print(f"Query embedding shape: {query_embedding.shape}")
-    print(f"Number of entries: {len(entries)}")
+    
     if len(embeddings) == 0:
         print("No entries found in the database.")
     similarities = [similarity_threshold(query_embedding, emb) for emb in embeddings]
-    print(f"Similarities: {similarities}")
     # Sort entries by similarity in descending order
     indices = np.argsort(similarities)[::-1]
     sorted_entries = [entries[i] for i in indices]
-    print(f"Sorted entries: {sorted_entries}")
 
     return render_template_string(
         """
