@@ -9,8 +9,8 @@ from .database import create_db, get_all_entries, get_timestamps
 from .nlp import cosine_similarity, similarity_threshold, get_embedding
 from .screenshot import record_screenshots_thread
 from .utils import human_readable_time, timestamp_to_human_readable
-
-#current_os = "linux"
+import sys
+from .screenshot import is_wayland
 
 app = Flask(__name__)
 
@@ -198,7 +198,10 @@ def runnable():
     create_db()
 
     print(f"Appdata folder: {appdata_folder}")
-
+    if is_wayland():
+        print("Wayland detected. Currently, not supported on Wayland.")
+        sys.exit(1)
+        raise SystemExit("Exiting because of a critical error.")
     # Start the thread to record screenshots
     t = Thread(target=record_screenshots_thread)
     t.start()
