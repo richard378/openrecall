@@ -1,3 +1,4 @@
 from .app import *
 
-app.run()
+def start():
+    app.run()
