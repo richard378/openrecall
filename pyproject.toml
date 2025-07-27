@@ -32,3 +32,5 @@
         exclude = ["tests"]
         namespaces = false
 
+    [project.scripts]
+    openrecall = "src.app"
