@@ -15,6 +15,7 @@
     dependencies = [
             "Flask==3.0.3",
             "numpy==1.26.4",
+            "dtaidistance",
             "mss==10.0.0",
             "sentence-transformers==3.0.0",
             "torch==2.6.0",
