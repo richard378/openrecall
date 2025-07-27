@@ -115,7 +115,7 @@ def timeline():
       const reversedIndex = timestamps.length - 1 - slider.value;
       const timestamp = timestamps[reversedIndex];
       sliderValue.textContent = new Date(timestamp * 1000).toLocaleString();  // Convert to human-readable format
-      timestampImage.src = `/static/${filename[reversedIndex]}`;
+      timestampImage.src = `/static/${filenames[reversedIndex]}`;
     });
 
     // Initialize the slider with a default value
