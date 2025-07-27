@@ -41,6 +41,3 @@
     where = ["src"]
     exclude = ["tests"]
     namespaces = false
-        
-    [project.scripts]
-    openrecall = "app"
