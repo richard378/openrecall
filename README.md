@@ -8,7 +8,16 @@
 ```
 **Enjoy this project?** Show your support by starring it! ⭐️ Thank you!
 
-Join our [Discord](https://discord.gg/RzvCYRgUkx) and/or [Telegram](https://t.me/+5DULWTesqUYwYjY0) community to stay informed of updates!
+This is a fork, see the origional:
+
+```
+https://wwww.github.com/openrecall/openrecall
+```
+
+# Currently does this software not support Wayland on Linux.
+
+##(Note: These communities are for the origional software only.  Not his version)
+Join our [Discord](https://discord.gg/RzvCYRgUkx) and/or [Telegram](https://t.me/+5DULWTesqUYwYjY0) community to stay informed of updates! 
 
 # Take Control of Your Digital Memory
 
@@ -116,10 +125,13 @@ Note: If you specified a custom storage path at any time using the `--storage-pa
 
 As an open-source project, we welcome contributions from the community. If you'd like to help improve OpenRecall, please submit a pull request or open an issue on our GitHub repository.
 
-## Contact the maintainers
+## Contact the maintainers of the Origional software here
 mail@datatalk.be
+
+## Contact me (Richard Horan)  the maintainer of this repositry here
+richard@webhoran.com
 
 ## License
 
-OpenRecall is released under the [AGPLv3](https://opensource.org/licenses/AGPL-3.0), ensuring that it remains open and accessible to everyone.
+OpenRecall is released under the [AGPLv3](https://opensource.org/licenses/AGPL-3.0), ensuring that it remains open and accessible to everyone. This is a fork.
 
