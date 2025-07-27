@@ -82,6 +82,7 @@ def get_timestamps() -> List[int],List[str]:
                    Returns an empty list if the table is empty or an error occurs.
     """
     timestamps: List[int] = []
+    filenames: List[str] = []
     try:
         with sqlite3.connect(db_path) as conn:
             cursor = conn.cursor()
