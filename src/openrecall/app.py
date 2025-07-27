@@ -1,14 +1,14 @@
 from threading import Thread
-# from src import *
+
 import numpy as np
 from flask import Flask, render_template_string, request, send_from_directory
 from jinja2 import BaseLoader
 
-from openrecall.config import appdata_folder, screenshots_path
-from openrecall.database import create_db, get_all_entries, get_timestamps
-from openrecall.nlp import cosine_similarity, get_embedding
-from openrecall.screenshot import record_screenshots_thread
-from openrecall.utils import human_readable_time, timestamp_to_human_readable
+from .config import appdata_folder, screenshots_path
+from .database import create_db, get_all_entries, get_timestamps
+from .nlp import cosine_similarity, get_embedding
+from .screenshot import record_screenshots_thread
+from .utils import human_readable_time, timestamp_to_human_readable
 
 #current_os = "linux"
 
