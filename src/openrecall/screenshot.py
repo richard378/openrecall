@@ -78,10 +78,7 @@ def take_screenshots() -> List[np.ndarray]:
     Returns:
         A list of screenshots, where each screenshot is a NumPy array (RGB).
     """
-    if is_wayland():
-        print("Wayland detected. Currently, not supported on Wayland.")
-        sys.exit(1)
-        raise SystemExit("Exiting because of a critical error.")
+  
         # if args.primary_monitor_only:
         #     print("Capturing only the primary monitor as requested.")
         # else:
@@ -124,10 +121,7 @@ def record_screenshots_thread() -> None:
     screenshots, associated OCR text, embeddings, and active application info.
     Runs in an infinite loop, intended to be executed in a separate thread.
     """
-    if is_wayland():
-        print("Wayland detected. Currently, not supported on Wayland.")
-        sys.exit(1)
-        raise SystemExit("Exiting because of a critical error.")
+    
     # TODO: Move this environment variable setting to the application's entry point.
     # HACK: Prevents a warning/error from the huggingface/tokenizers library
     # when used in environments where multiprocessing fork safety is a concern.
@@ -181,10 +175,7 @@ def record_screenshots_thread() -> None:
 
 
 def record_screenshots_thread():
-    if is_wayland():
-        print("Wayland detected. Currently, not supported on Wayland.")
-        sys.exit(1)
-        raise SystemExit("Exiting because of a critical error.")
+    
     # TODO: fix the error from huggingface tokenizers
     import os
 
