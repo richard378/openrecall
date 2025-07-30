@@ -198,11 +198,6 @@ def runnable():
     create_db()
 
     print(f"Appdata folder: {appdata_folder}")
-    # if is_wayland():
-    #     print("Wayland detected. Currently, not supported on Wayland.")
-    #     sys.exit(1)
-    #     raise SystemExit("Exiting because of a critical error.")
-    # # Start the thread to record screenshots
     t = Thread(target=record_screenshots_thread)
     t.start()
 
