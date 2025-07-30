@@ -15,7 +15,6 @@ from .utils import (
     get_active_app_name,
     get_active_window_title,
     is_user_active,
-    is_wayland,
 )
 
 
