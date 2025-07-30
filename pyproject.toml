@@ -20,10 +20,10 @@
             "sentence-transformers==3.0.0",
             "torch==2.6.0",
             "torchvision>=0.17.0",
-            "shapely==2.0.4",
-            "h5py==3.11.0",
+            "shapely>=2.0.4",
+            "h5py>=3.11.0",
             "rapidfuzz==3.9.3",
-            "Pillow==10.3.0",
+            "Pillow>=10.3.0",
             "python-doctr @ git+https://github.com/koenvaneijk/doctr.git@af711bc04eb8876a7189923fb51ec44481ee18cd",
     ]
     

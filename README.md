@@ -80,11 +80,20 @@ OpenRecall offers several key advantages over closed-source alternatives:
 - Git
 
 
-To install:
+To install on Linux:
 ```
-python3 -m pipx install --incluede-deps git+https://github.com/richard378/openrecall.git
+python3 -m pipx install --include-deps git+https://www.github.com/richard378/openrecall.git
+```
+To install on  Windows (Tested on Python 3.13)
+Install Visual Studio Desktop Development C++ package and
+```
+py -m pipx install --include-deps git+https://www.github.com/richard378/openrecall.git#egg=win
 ```
 
+To install on Mac (Not Tested)
+```
+python3 -m pipx install --include-deps git+https://www.github.com/richard378/openreall.git#egg=mac
+```
 To run:
 ```
 openrecall
